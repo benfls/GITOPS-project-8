@@ -23,10 +23,10 @@ pipeline {
             steps {
                 script {
                     echo 'Pushing Docker image to DockerHub...'
-                    docker.withRegistry('https://registry.hub.docker.com' , "${DOCKER_HUB_CREDENTIALS_ID}")
-                    dockerImage.push('latest')
+                    docker.withRegistry('https://registry.hub.docker.com' , "${DOCKER_HUB_CREDENTIALS_ID}") {
+                        dockerImage.push('latest')
+                    }
                 }
-                
             }
         }
         stage('Install Kubectl & ArgoCD CLI') {
