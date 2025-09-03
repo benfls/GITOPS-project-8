@@ -1,0 +1,38 @@
+body {
+  background: #f4f6f9;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+  color: #333;
+}
+
+.card {
+  border-radius: 12px;
+  background: #fff;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.result.low {
+  background: #d4edda;
+  color: #155724;
+}
+
+.result.medium {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.result.high {
+  background: #f8d7da;
+  color: #721c24;
+}

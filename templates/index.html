@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factory Predictive Model</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container py-4">
+
+  <h1 class="text-center mb-4">🏭 Predictive Maintenance App</h1>
+
+  <div class="card p-4 shadow">
+    <form method="POST" action="/predict" class="row g-3">
+      {% for feature in features %}
+      <div class="col-md-6">
+        <label for="{{ feature }}" class="form-label">{{ feature }}</label>
+        <input type="text" id="{{ feature }}" name="{{ feature }}" class="form-control" required>
+      </div>
+      {% endfor %}
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary btn-lg mt-3">Predict</button>
+      </div>
+    </form>
+  </div>
+
+  {% if prediction %}
+  <div class="result {% if prediction == 'Low' %}low{% elif prediction == 'Medium' %}medium{% else %}high{% endif %}">
+    <strong>Prediction:</strong> {{ prediction }}
+  </div>
+  {% endif %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
